@@ -394,7 +394,7 @@ async function payDirectViaPaystack(bundle, phone, storeId, userEmail) {
     }
     const handler = window.PaystackPop.setup({
       key:      PAYSTACK_KEY,
-      email:    userEmail || `${phone.replace(/^0/, '')}@datapulse.gh`,
+      email:    userEmail || `${phone.replace(/^0/, '')}@scifidata.shop`,
       amount:   Math.round(bundle.price * 100),
       currency: 'GHS',
       ref,
@@ -885,12 +885,14 @@ function Navigation() {
         style={{ background: scrolled ? 'rgba(5,10,20,0.97)' : 'rgba(5,10,20,0.85)', backdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 h-[70px] flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-[9px] flex items-center justify-center" style={{ background: 'linear-gradient(135deg,#38BDF8,#22D3A1)' }}>
-              <span className="font-syne font-extrabold text-sm text-[#050A14]">DP</span>
-            </div>
-            <span className="font-syne font-extrabold text-lg text-gradient hidden sm:block">DataPulse</span>
-          </Link>
+   <div className="flex items-center">
+  <img 
+    src="https://i.imgur.com/wKOG6wP.png" 
+    alt="Sci-fi Data Logo" 
+    className="h-10 w-auto mr-2" 
+  />
+  <span className="text-xl font-bold">Sci-fi Data</span>
+</div>
 
           {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-6">
@@ -991,8 +993,8 @@ function Footer() {
           ))}
         </div>
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid var(--border-subtle)' }}>
-          <p className="font-dm text-[13px] text-[#64748B]">© 2026 DataPulse. All rights reserved.</p>
-          <p className="font-dm text-[13px] text-[#64748B]">Powered by <span className="text-[#38BDF8]">Sci-Fi Data</span></p>
+          <p className="font-dm text-[13px] text-[#64748B]">© 2026 Sci-fi Data. All rights reserved.</p>
+          <p className="font-dm text-[13px] text-[#64748B]">Powered by <span className="text-[#38BDF8]">Sci-Fi Tech</span></p>
         </div>
       </div>
     </footer>
