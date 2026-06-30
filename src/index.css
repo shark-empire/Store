@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --- Brand Colors (HSL) --- */
+    --accent-blue: 198 93% 60%;      /* #38BDF8 */
+    --accent-green: 170 75% 48%;     /* #22D3A1 */
+    
+    /* --- Core Palette (Shadcn Standards) --- */
+    --background: 220 50% 4%;        /* #050A14 */
+    --foreground: 216 100% 97%;      /* #F0F6FF */
+    
+    --card: 220 45% 8%;              /* #0D1526 */
+    --card-foreground: 216 100% 97%;
+    
+    --muted: 220 30% 12%;            /* #1D283A */
+    --muted-foreground: 215 16% 47%; /* #64748B */
+    
+    --border: 220 30% 12%;           /* #1D283A */
+    --input: 220 30% 12%;
+    
+    --primary: var(--accent-blue);
+    --primary-foreground: 220 50% 4%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', system-ui, sans-serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { 
+    background: hsl(var(--muted)); 
+    border-radius: 3px; 
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)/0.5); }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 to-emerald-400;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-[var(--radius-md)] 
+           bg-gradient-to-br from-cyan-400 to-emerald-400 text-slate-950 font-bold font-['Syne']
+           transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/20;
+  }
+
+  .card-base {
+    @apply bg-slate-950/85 backdrop-blur-xl border border-white/[0.07] rounded-[var(--radius-xl)] 
+           transition-all duration-300 hover:-translate-y-1 hover:border-white/10 hover:shadow-2xl;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
